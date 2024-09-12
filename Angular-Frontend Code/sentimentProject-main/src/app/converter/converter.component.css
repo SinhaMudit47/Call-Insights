@@ -1,0 +1,146 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.section{
+
+    margin: 0;
+    padding: 0;
+    background-image: url(src\assets\converter1.jpg);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+ 
+}
+
+/* -----------------audio tag--------------------- */
+audio{
+    position: relative;
+    left: 40%;
+    top: 71px;
+    z-index: 9;
+    width: 22%;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: #f4f2f2;
+    color: #9f7e7e;
+    border-radius: 1px;
+
+  }
+
+
+/* -----------------container--------------------- */
+.container{
+    justify-content: center;
+}
+.inside-file {
+    position: relative;
+    top: 60px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.inside-file label {
+    display: block;
+}
+
+.inside-file input {
+    height: 168px;
+    width: 436px;
+    border: 2px solid red;
+    position: relative;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.parent:hover {
+    border: 1px dashed rgb(0, 152, 253);
+    background: rgb(239, 249, 255);
+    border-radius: 10px;
+}
+
+.filediv {
+    position: absolute;
+    top: 21px;
+    border: 1px dashed rgb(155 155 155);
+    border-radius: 10px;
+    width: 436px;
+    height: 168px;
+    text-align: center;
+    background-color: white;
+    padding: 53px;
+}
+
+.filediv mat-icon {
+    position: relative;
+    top: 6px;
+}
+
+.filediv span {
+    font-style: italic;
+}
+
+
+
+.btn1, .btn2 { 
+    border: none;
+    background-color: rgb(38 39 43);
+    color: white;
+    width: 100px;
+    border-radius: 5px;
+    padding: 6px 8px;
+    margin: 10px;
+}
+
+.btn1:hover, .btn2:hover {
+    background-color: rgb(82 82 82);
+}
+
+.transcript {
+    margin-top: 23px;
+    padding: 8px;
+    text-align: center;
+}
+
+.textbox {
+    display: block;
+    border-radius: 10px;
+    border-style: dashed;
+    text-align: center;
+    width: 80%;
+    margin: 16px auto;
+    cursor: default
+}
+
+.spinner {
+    position: relative;
+    left: 50%; 
+    top: 126px; 
+    transform: translate(-50%, -50%); 
+    width: 11.2px;
+    height: 11.2px;
+    border-radius: 11.2px;
+    box-shadow: 28px 0px 0 0 rgba(71,75,255,0.2), 22.7px 16.5px 0 0 rgba(71,75,255,0.4), 8.68px 26.6px 0 0 rgba(71,75,255,0.6), -8.68px 26.6px 0 0 rgba(71,75,255,0.8), -22.7px 16.5px 0 0 #474bff;
+    animation: spin 1s infinite linear;
+ }
+ 
+ @keyframes spin {
+    1% {
+       transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+ }
+
+.anSpinner{
+    position: relative;
+    top: -9px;
+}

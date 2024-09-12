@@ -1,0 +1,40 @@
+<section class="section">
+  
+  <audio id="audio" controls *ngIf="!!audioFile">
+    <source [src]="audioUrl">
+  </audio>
+
+  <div class="inside-file">
+   
+
+    <div class="parent">
+      <input type="file" accept="audio/*" (input)="onInput($event)" [(ngModel)]="audioFile" required>
+
+      <div class="filediv">
+        <mat-icon>upload</mat-icon>
+        <span>Upload a file</span>
+        <p style="color: rgb(0 127 255);">Click to browse, or drag & drop a file here</p>
+        <p *ngIf="fileName">{{ fileName }}</p>
+        <p *ngIf="!fileName">No file selected</p>
+      </div>
+    </div>
+
+    <button class="btn1 mt-3 " [disabled]="!audioFile" type="submit" [disabled]="loading"
+      (click)="uploadAudio()">Convert</button>
+  </div>
+
+
+
+  <div class="transcript">
+    <div class="spinner" *ngIf="loading"></div>
+    <textarea [(ngModel)]="translateData" readonly class="textbox" name="transcript" id="transcript" cols="30" rows="10"
+      placeholder="Audio Transcript"></textarea>
+    <button class="btn2" (click)="getAnalysis()">Analysis</button>
+    <button class="btn2" (click)="downloadText()">Download</button>
+  </div>
+  <p-progressBar class="anSpinner" *ngIf="anLoding" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+</section>
+
+
+<app-analysis *ngIf="showAnalysis" [analysisData]="analysisData" [summarizeText]="summarizeText"></app-analysis>
+<app-footer *ngIf="!showAnalysis"></app-footer>
