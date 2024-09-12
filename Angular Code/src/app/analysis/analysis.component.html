@@ -1,0 +1,93 @@
+<section class="section">
+<h3 class="text-center heading">Text Analysis</h3>
+
+
+<div class="container">
+
+
+
+    <div class="card">
+        <h3 class="text-center">Sentiment Analysis</h3>
+        <p-chart type="pie" [data]="polarityChart" height="50vh" width="50vw"></p-chart>
+    </div>
+
+
+    <div class="card">
+      <h3 class="card-title text-center">Subjectivity</h3>
+      <p-chart type="doughnut" [data]="subjectivityChart" height="50vh" width="50vw"></p-chart>
+      <!-- <div class="discription">
+      <p class="card-text mtxt"><b>Fact</b> A fact is information that is considered to be true</p>
+      <p class="card-text mtxt" ><b>Opinion</b> A personal opinion is information that is held by an individual</p>
+    </div> -->
+  </div>
+   
+
+    <div class="card">
+        <h3 class="text-center">Change Language</h3>
+        <div class="drop-btn">
+        <div class="dropdown">
+            <select class="ui dropdown" [(ngModel)]="selectedLanguage">
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+              </select>
+          </div>
+          <button type="button" class="btn1" (click)="changeLang()">Change</button>
+        </div>
+
+        <div class="spinner" *ngIf="loading"></div>
+
+          <textarea name="language" id="language" cols="30" rows="25" readonly>{{translatedText}}</textarea>
+    </div>
+
+
+    <div class="card overflow-auto">
+        <h3 class="text-center">Frequency Count</h3>
+        <table class="product-table">
+            <thead>
+              <tr>
+                <th>Word</th>
+                <th>Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of frequencyArray">
+                <td>{{ item.word }}</td>
+                <td>{{ item.frequency}}</td>
+              </tr>
+            </tbody>
+          </table>          
+
+    </div>
+
+    <div class="card">
+      <h3 class="text-center">Word Cloud</h3>
+        <img [src]="imageUrl" alt="Received Image">
+
+    </div>
+
+    
+    <div class="card">
+      <h3 class="text-center">Total Counts</h3>
+
+      <h5 class="totalWord">Total Words<span>{{totalWord}}</span></h5>
+      <h5 class="totalWord">Total Verbs <span>{{totalVerb}}</span></h5>
+      <h5 class="totalWord">Total Digits<span>{{totalDigit}}</span></h5>
+      <h5 class="totalWord">Total Nouns<span>{{totalNoun}}</span></h5>
+      <h5 class="totalWord">Total Pronouns <span>{{totalPronoun}}</span></h5>
+      <h5 class="totalWord">Total Sentences <span>{{totalSentence}}</span></h5>
+      
+  </div>
+
+    <div class="card overflow-auto">
+      <h3 class="text-center">Summarized text</h3>
+      <p class="p-4">{{summarizeText.summarized_text}}</p>
+
+      
+  </div>
+
+
+</div>
+
+</section>
+<app-footer></app-footer>
